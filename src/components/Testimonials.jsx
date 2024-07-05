@@ -5,20 +5,20 @@ export default function Testimonials() {
       <p className="testimonials-title">Testimonials</p>
       <div className="testimonials">
         <div className="testimonial">
-          <div class="rating">
-            <span class="checked">
+          <div className="rating">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="unChecked">
+            <span className="unChecked">
               <GoStarFill />
             </span>
           </div>
@@ -40,20 +40,20 @@ export default function Testimonials() {
           </article>
         </div>
         <div className="testimonial">
-          <div class="rating">
-            <span class="checked">
+          <div className="rating">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="unChecked">
+            <span className="unChecked">
               <GoStarFill />
             </span>
-            <span class="unChecked">
+            <span className="unChecked">
               <GoStarFill />
             </span>
           </div>
@@ -75,20 +75,20 @@ export default function Testimonials() {
           </article>
         </div>
         <div className="testimonial">
-          <div class="rating">
-            <span class="checked">
+          <div className="rating">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
-            <span class="checked">
+            <span className="checked">
               <GoStarFill />
             </span>
           </div>

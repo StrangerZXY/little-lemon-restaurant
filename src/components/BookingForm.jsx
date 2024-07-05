@@ -1,14 +1,14 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+
 export default function BookingForm({ availableTimes, dispatch, submitForm }) {
-  console.log(dispatch);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    contactNumber: "",
-    date: "",
-    time: "00:00",
+    firstName: '',
+    lastName: '',
+    contactNumber: '',
+    date: '',
+    time: '00:00',
     noOfGuests: 1,
-    occasion: "Birthday",
+    occasion: 'Birthday',
   });
 
   const handleFormChange = (event) => {
@@ -21,12 +21,11 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
 
   const handleDateChange = async (event) => {
     const { name, value } = event.target;
-
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
-    dispatch({ type: "UPDATE_TIMES", payload: value });
+    dispatch({ type: 'UPDATE_TIMES', payload: value });
   };
 
   const handleSubmit = (event) => {
@@ -34,21 +33,18 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
     submitForm(formData);
   };
 
-  const currentDate = new Date().toISOString().split("T")[0];
+  const currentDate = new Date().toISOString().split('T')[0];
   const options = availableTimes.map((time) => (
-    <option key={time}>{time}</option>
+    <option key={time} value={time}>{time}</option>
   ));
+
   return (
     <main>
       <h1 className="title title-form">Reservation</h1>
-      <p className="desc-text form-desc">
-        Please fill in the form below accurately.
-      </p>
+      <p className="desc-text form-desc">Please fill in the form below accurately.</p>
       <form onSubmit={handleSubmit}>
         <div className="seperate">
-          <label htmlFor="first-name">
-            First Name<span>*</span>
-          </label>
+          <label htmlFor="first-name">First Name<span>*</span></label>
           <input
             type="text"
             id="first-name"
@@ -59,9 +55,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
           />
         </div>
         <div className="seperate">
-          <label htmlFor="last-name">
-            Last Name<span>*</span>
-          </label>
+          <label htmlFor="last-name">Last Name<span>*</span></label>
           <input
             type="text"
             id="last-name"
@@ -85,9 +79,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
         </div>
         <div className="seperate date-time">
           <div className="seperate-child">
-            <label htmlFor="res-date">
-              Choose date<span>*</span>
-            </label>
+            <label htmlFor="res-date">Choose date<span>*</span></label>
             <input
               type="date"
               id="res-date"
@@ -99,11 +91,9 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
             />
           </div>
           <div className="seperate-child">
-            <label htmlFor="res-time">
-              Choose time<span>*</span>
-            </label>
+            <label htmlFor="res-time">Choose time<span>*</span></label>
             <select
-              id="res-time "
+              id="res-time"
               name="time"
               value={formData.time}
               onChange={handleFormChange}
@@ -115,9 +105,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
         </div>
         <div className="seperate guests-occasion">
           <div className="seperate-child">
-            <label htmlFor="guests">
-              Number of guests<span>*</span>
-            </label>
+            <label htmlFor="guests">Number of guests<span>*</span></label>
             <input
               type="number"
               placeholder="1"
@@ -131,9 +119,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
             />
           </div>
           <div className="seperate-child">
-            <label htmlFor="occasion">
-              Occasion<span>*</span>
-            </label>
+            <label htmlFor="occasion">Occasion<span>*</span></label>
             <select
               id="occasion"
               name="occasion"

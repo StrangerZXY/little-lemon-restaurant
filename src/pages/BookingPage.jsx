@@ -3,28 +3,17 @@ import BookingForm from "../components/BookingForm";
 import { fetchAPI, submitAPI } from "./api";
 import { useNavigate } from "react-router-dom";
 
+export function initializeTimes(date) {
+  return fetchAPI(date);
+}
+
+export function updateTimes(date) {
+  const dateObj = new Date(date);
+  return fetchAPI(dateObj);
+}
+
 export default function BookingPage() {
-  // const [date, setDate] = useState(new Date());
   const date = new Date();
-
-  function initializeTimes(date) {
-    return fetchAPI(date);
-  }
-
-  function updateTimes(date) {
-    const dateObj = new Date(date);
-    return fetchAPI(dateObj);
-  }
-
-  const navigate = useNavigate();
-
-  function submitForm(formData) {
-    const isSubmitted = submitAPI(formData);
-
-    if (isSubmitted) {
-      navigate("/confirmed");
-    }
-  }
 
   function reducer(state, action) {
     let newState;
@@ -33,11 +22,19 @@ export default function BookingPage() {
         const newDate = new Date(action.payload);
         newState = updateTimes(newDate);
         break;
-
       default:
         throw new Error();
     }
     return newState;
+  }
+
+  const navigate = useNavigate();
+
+  function submitForm(formData) {
+    const isSubmitted = submitAPI(formData);
+    if (isSubmitted) {
+      navigate("/confirmed");
+    }
   }
 
   const [availableTimes, dispatch] = useReducer(reducer, initializeTimes(date));
